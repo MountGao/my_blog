@@ -1,4 +1,5 @@
 1.图表框架highcharts/echarts;
 2.wx浏览器水平垂直居中transform：50% 50%；元素最大的宽高度为屏幕宽高的一半;
 3.profile个人简介 portfolio  作品集，投资组合，集合;cover songName 翻唱;
-4.OST是Original Sound Track的缩写，字面意思是原始声音轨道，即原声。通俗来讲，就是一首歌曲或者音乐第一次出现在某种媒体中。OST多见于电影，电视剧，游戏和动画中。
+4.OST是Original Sound Track的缩写，字面意思是原始声音轨道，即原声。通常来讲，就是一首歌曲或者音乐第一次出现在某种媒体中。OST多见于电影，电视剧，游戏和动画中。
+5.DOS命令行TYPE+文件名：查看文件内容  edit+文件名：编辑文件，需要另外安装edit.exe
