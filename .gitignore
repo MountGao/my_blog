@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/*
+runtime/*
+vendor/*
+.DS_Store
+*/.DS_Store
+.idea/
+prot_forwarding.sh
