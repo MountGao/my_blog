@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>涂鸦</title>
+    <style type="text/css">
+        body{
+            text-align: center;
+        }
+        input{
+            margin-left:10px;
+            vertical-align: middle;
+        }
+        output{
+            display: inline-block;
+            width: 50px;
+        }
+        canvas{
+        	border: 1px solid black; 
+        	display: block;
+        	margin: auto;
+        }
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    
+</head>
+<body>
+	<canvas id="mycanvas" width="500" height="600"></canvas>
+	<input type="color" onchange="colorChange(this.value)" oninput="co.value=this.value;" />
+	<output id="co"></output>
+	
+	<input type="range" value="1" min="1" max="10" oninput="cg.value=this.value;widthChange(this.value)" />
+	<output id="cg"></output>
+	<input type="button" id="" value="清除画布" />
+	<script type="text/javascript">
+		//禁止双击变蓝   导致画布无法绘画
+        document.onselectstart = new Function('event.returnValue=false;');
+        
+            var can = $('canvas')[0];
+            var box = can.getContext('2d');
+            var ondown = false;
+            $('canvas').mousedown(function(e){
+            	console.log("e.which:",e.which);
+                ondown=true;
+                var ox = e.pageX-$(this).offset().left;
+                var oy = e.pageY-$(this).offset().top;
+                box.beginPath();
+                box.moveTo(ox,oy);
+            }).mouseup(function(){
+                ondown = false;
+                box.closePath();
+            }).mousemove(function(e){
+				//是否按下鼠标 and 是否按下左键  e.which==1（左键）e.which==3(右键) e.which==2(滚轮)
+                if(ondown && e.which == 1){
+                    var ox = e.pageX - $(this).offset().left;
+                    var oy = e.pageY - $(this).offset().top;
+                    box.lineTo(ox,oy);
+                    box.stroke();
+                }
+
+            }).dblclick(function(){
+                box.clearRect(0,0,500,600);
+            })
+            function widthChange(m){
+                box.lineWidth = m;
+                console.log(m);
+            }
+            function colorChange(m){
+                box.strokeStyle = m;
+                console.log(m);
+            }
+            $('input').eq(2).click(function(){
+                box.clearRect(0,0,500,600);
+            })
+            
+       
+    </script>
+</body>
+</html>
+
+
