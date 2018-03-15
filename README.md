@@ -1,1 +1,1 @@
-什么鬼
+This is John's git blog
