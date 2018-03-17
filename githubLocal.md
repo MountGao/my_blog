@@ -1,6 +1,6 @@
 [TOC]
 
-# gitbub本地的使用
+# github本地的使用
 
 ### 1.生成ssh-key
 
