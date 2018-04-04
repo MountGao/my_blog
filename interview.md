@@ -472,3 +472,9 @@ localStorage与sessionStorage的区别就是
     （忽略 top, bottom, left, right z-index 声明）。
 
   * inherit 规定从父元素继承 position 属性的值。
+  ###chrome extension谷歌浏览器拓展、应用
+  ####Chrome扩展及应用开发（首发版）   
+  http://www.ituring.com.cn/book/1421
+  
+  ####360极速浏览器应用开放平台
+  http://open.chrome.360.cn/extension_dev/overview.html
