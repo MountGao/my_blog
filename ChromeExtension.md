@@ -1,4 +1,4 @@
-### chrome extension谷歌浏览器拓展、应用  
+## chrome extension谷歌浏览器拓展、应用
 
 ####Chrome扩展及应用开发（首发版）   
 
