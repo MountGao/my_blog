@@ -172,9 +172,38 @@ function deepCopy(src) {
     return dist;
 }
 //var arr111 = [1,2,3,4,5];
-var arr111 = {1:1,2:2,3:3};
+// var arr111 = {1:1,2:2,3:3};
+// var arr2222 = deepCopy(arr111);
+// arr2222[2] = 22;
+var arr111 = 1;
 var arr2222 = deepCopy(arr111);
-arr2222[2] = 22;
-console.log(arr111,arr2222);//{ '1': 1, '2': 2, '3': 3 } { '1': 1, '2': 22, '3': 3 }
+console.log('deepCopy===',arr111,arr2222);//{ '1': 1, '2': 2, '3': 3 } { '1': 1, '2': 22, '3': 3 }
 
 
+// for (var i = 0; i < 3; i++) {
+// 	setTimeout(function(argument) {
+// 		console.log('var i===',i);
+// 	},1000);
+// }
+// 3 3 3
+// for (let i = 0; i < 3; i++) {
+// 	setTimeout(function(argument) {
+// 		console.log('let i===',i);
+// 	},1000);
+// }
+//1 2 3
+// console.log(1);
+// setTimeout(function(argument) {
+// 	console.log(2);
+// }, 0)
+// new Promise(function(resolve,reject) {
+// 	console.log(3);
+// 	resolve();
+// 	reject();
+// }).then(function(argument) {
+// 	console.log(4);
+// },function(argument) {
+// 	console.log(5);
+// })
+// console.log(6);
+//1 3 6 4 2
