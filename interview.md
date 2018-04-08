@@ -473,7 +473,7 @@ localStorage与sessionStorage的区别就是
 
   * inherit 规定从父元素继承 position 属性的值。
 
-    ​
+  ​
 
 # IaaS、PaaS、SaaS的区别？
 
@@ -504,3 +504,11 @@ PaaS公司在网上提供各种开发和分发应用的解决方案，比如虚�
 你消费的服务完全是从网页如Netflix,MOG,Google Apps,Box.net,Dropbox或者苹果的iCloud那里进入这些分类。尽管这些网页服务是用作商务和娱乐或者两者都有，但这也算是云技术的一部分。
 
 一些用作商务的SaaS应用包括Citrix的Go To Meeting，Cisco的WebEx，Salesforce的CRM，ADP，Workday和SuccessFactors。
+
+  ###chrome extension谷歌浏览器拓展、应用
+  ####Chrome扩展及应用开发（首发版）   
+  http://www.ituring.com.cn/book/1421
+
+  ####360极速浏览器应用开放平台
+  http://open.chrome.360.cn/extension_dev/overview.html
+
