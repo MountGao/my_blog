@@ -453,7 +453,7 @@ localStorage与sessionStorage的区别就是
 
     2. position的值
 
--   absolute 
+- absolute 
 
 
 ​        生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。 
@@ -472,9 +472,43 @@ localStorage与sessionStorage的区别就是
     （忽略 top, bottom, left, right z-index 声明）。
 
   * inherit 规定从父元素继承 position 属性的值。
+
+  ​
+
+# IaaS、PaaS、SaaS的区别？
+
+> http://www.chinacloud.cn/show.aspx?id=19758&cid=18
+
+你一定听说过云计算中的三个“高大上”的你一定听说过云计算中的三个“高大上”的概念：
+
+IaaS、PaaS和SaaS就像pizza店提供三种服务：买成品回家做、叫外卖和到披萨店吃。
+
+**IaaS:** Infrastructure-as-a-Service(基础设施即服务)    **买成品回家做**
+
+有了IaaS，你可以将硬件外包到别的地方去。IaaS公司会提供场外服务器，存储和网络硬件，你可以租用。节省了维护成本和办公场地，公司可以在任何时候利用这些硬件来运行其应用。
+
+一些大的IaaS公司包括Amazon, Microsoft, VMWare, Rackspace和Red Hat.不过这些公司又都有自己的专长，比如Amazon和微软给你提供的不只是IaaS，他们还会将其计算能力出租给你来host你的网站。
+
+**PaaS:** Platform-as-a-Service(平台即服务)          **叫外卖**
+
+**第二**层就是所谓的PaaS，某些时候也叫做中间件。你公司所有的开发都可以在这一层进行，节省了时间和资源。
+
+PaaS公司在网上提供各种开发和分发应用的解决方案，比如虚拟服务器和操作系统。这节省了你在硬件上的费用，也让分散的工作室之间的合作变得更加容易。网页应用管理，应用设计，应用虚拟主机，存储，安全以及应用开发协作工具等。
+
+一些大的PaaS提供者有Google App Engine,Microsoft Azure，Force.com,Heroku，Engine Yard。最近兴起的公司有AppFog,Mendix和Standing Cloud.
+
+**SaaS: **Software-as-a-Service(软件即服务)           **到披萨店吃**
+
+第三层也就是所谓SaaS。这一层是和你的生活每天接触的一层，大多是通过网页浏览器来接入。任何一个远程服务器上的应用都可以通过网络来运行，就是SaaS了。
+
+你消费的服务完全是从网页如Netflix,MOG,Google Apps,Box.net,Dropbox或者苹果的iCloud那里进入这些分类。尽管这些网页服务是用作商务和娱乐或者两者都有，但这也算是云技术的一部分。
+
+一些用作商务的SaaS应用包括Citrix的Go To Meeting，Cisco的WebEx，Salesforce的CRM，ADP，Workday和SuccessFactors。
+
   ###chrome extension谷歌浏览器拓展、应用
   ####Chrome扩展及应用开发（首发版）   
   http://www.ituring.com.cn/book/1421
-  
+
   ####360极速浏览器应用开放平台
   http://open.chrome.360.cn/extension_dev/overview.html
+
