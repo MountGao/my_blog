@@ -21,3 +21,5 @@
 10.【get 技能】忘记密码？--如何查询并修改My SQL本地数据库密码
 
 https://blog.csdn.net/linhaiyun_ytdx/article/details/52862104
+
+https://www.cnblogs.com/flyoung/p/4945696.html
