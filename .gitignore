@@ -6,3 +6,4 @@ vendor/*
 */.DS_Store
 .idea/
 prot_forwarding.sh
+NodeTest/node_modules/*
