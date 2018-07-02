@@ -23,3 +23,5 @@
 https://blog.csdn.net/linhaiyun_ytdx/article/details/52862104
 
 https://www.cnblogs.com/flyoung/p/4945696.html
+
+11.js直接调用submit()提交表单的话，无法触发onsubmit事件
