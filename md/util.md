@@ -127,9 +127,9 @@ formatTime("yyyy-MM-dd hh:mm:ss",new Date(1529661299*1000));
 7、获取变量类型
 
 ```
-function typeOfVariable(params) {
-    let TYPE = Object.prototype.toString.call(params);
-    TYPE = TYPE.substring(1,TYPE.length-1).split(" ")[1];
-    return TYPE;
+function classOf(variable) {
+	if(variable === null) return "Null";
+	if(variable === undefined) return "Undefined";
+    return Object.prototype.toString.call(variable).slice(8,-1);
 }
 ```
