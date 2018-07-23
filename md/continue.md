@@ -25,3 +25,11 @@ https://blog.csdn.net/linhaiyun_ytdx/article/details/52862104
 https://www.cnblogs.com/flyoung/p/4945696.html
 
 11.js直接调用submit()提交表单的话，无法触发onsubmit事件
+
+12.button元素绑定监听mouseover和mouseout事件，
+
+12.1 firefox浏览器下，button元素无子元素，事件触发一次，鼠标进入触发mouseover事件，鼠标移出触发mouseout事件，和其他浏览器一致。
+
+12.2 firefox浏览器下，button元素有子元素 ，事件触发一次，鼠标进入触发mouseover事件，鼠标移出触发mouseout事件，和其他浏览器有所不同。
+
+12.3 非firefox浏览器下（包括IE），button元素有子元素 ，事件触发多次，鼠标进入button元素触发mouseover事件，鼠标进入button的子元素先触发mouseout事件，再触发mouseover事件；鼠标移出button的子元素先触发mouseout事件，再触发mouseover事件,鼠标移出button元素触发mouseout事件。
