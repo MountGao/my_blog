@@ -49,20 +49,14 @@ element.scrollIntoView({behavior: "instant", block: "end", inline: "nearest"});
 - 回到顶部(#)
 - 滚动到指定位置(#xxx)
 
-## 兼容性
+## 浏览器兼容性
 
-| 特征                    | Chrome | Firefox (Gecko)      | Internet Explorer | Opera | Safari (WebKit) |
-| ----------------------- | ------ | -------------------- | ----------------- | ----- | --------------- |
-| 基本支持 ( alignToTop ) | 29     | 1.0 (1.7 or earlier) | 8[1]              | 38    | 5.0[1]          |
-| `scrollIntoViewOptions` | 61[2]  | 36[3]、[4]           | 没有支持          | 48[2] | 没有支持        |
+| 特征                    | Chrome | Firefox | Safari | Edge  | IE   | Opera |
+| ----------------------- | ------ | ------- | ------ | ----- | ---- | ----- |
+| 基本支持( alignToTop )  | yes    | yes     | yes    | yes   | yes  | yes   |
+| `scrollIntoViewOptions` | yes    | yes     | 5.1[1] | 12[1] | 9[1] | 48[2] |
 
 [1]不支持`"smooth"`行为或`"center"`选项。
-
-[2] `"block"`和`"inline"`选项支持的值`"start"`，`"center"`，`"end"`，`"nearest"`。
-
-[3]不支持`"inline"`选项
-
-[4]不支持选项的`"nearest"`或 `"center"`值`"block"`。
 
 ## 参考：
 
