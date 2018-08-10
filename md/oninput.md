@@ -54,9 +54,9 @@ element.addEventListener("input", function () {
 
 ### 浏览器兼容性
 
-| 特征     | Chrome | Firefox | Safari | Edge | Internet Explorer | Opera |
-| -------- | ------ | ------- | ------ | ---- | ----------------- | ----- |
-| 基本支持 | yes    | yes     | yes    | yes  | 9.0[1]            | yes   |
+| 特征     | Chrome | Firefox | Safari | Edge | IE     | Opera |
+| -------- | ------ | ------- | ------ | ---- | ------ | ----- |
+| 基本支持 | yes    | yes     | yes    | yes  | 9.0[1] | yes   |
 
 [1] IE9 中都有个小BUG，那就是删除和剪切操作(通过右键菜单菜单中的剪切和删除命令删除内容的时候不会触发，键盘快捷键剪切和删除也无法触发该事件)不会触发该事件，而 IE 其他版本都是正常的。 
 
@@ -109,9 +109,9 @@ element.attachEvent('onpropertychange',function(){
 
 ### 浏览器兼容性
 
-| 特征     | Chrome | Firefox | Safari | Edge | Internet Explorer | Opera |
-| -------- | ------ | ------- | ------ | ---- | ----------------- | ----- |
-| 基本支持 | no     | no      | no     | no   | yes[1]            | no    |
+| 特征     | Chrome | Firefox | Safari | Edge | IE     | Opera |
+| -------- | ------ | ------- | ------ | ---- | ------ | ----- |
+| 基本支持 | no     | no      | no     | no   | yes[1] | no    |
 
 [1] IE9 中都有个小BUG，那就是删除和剪切操作(通过右键菜单菜单中的剪切和删除命令删除内容的时候不会触发，键盘快捷键剪切和删除也无法触发该事件)不会触发该事件，而 IE 其他版本都是正常的。
 
@@ -172,9 +172,9 @@ element.addEventListener("change", function () {
 
 ### 浏览器兼容性
 
-| 特征     | Chrome | Firefox | Safari | Edge | Internet Explorer | Opera |
-| -------- | ------ | ------- | ------ | ---- | ----------------- | ----- |
-| 基本支持 | yes    | yes     | yes    | yes  | yes[1]            | yes   |
+| 特征     | Chrome | Firefox | Safari | Edge | IE     | Opera |
+| -------- | ------ | ------- | ------ | ---- | ------ | ----- |
+| 基本支持 | yes    | yes     | yes    | yes  | yes[1] | yes   |
 
 [1] IE8以及IE8以下版本不支持onchange事件冒泡。
 
