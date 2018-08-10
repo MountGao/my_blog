@@ -4,15 +4,15 @@
 
 ### 简介
 
-> `input`元素值更改时引发输入事件。 
+> `input`，`select`，`textarea`元素值更改时引发输入事件。 
 >
-> 这个事件支持冒泡。如果窗口支持，则`input`元素也受支持。
+> 这个事件支持冒泡。如果窗口支持，则`input`，`select`，`textarea`元素也受支持。
 
 
 
-**注意**：通过JavaScript改变`input`元素的值，无法触发该事件
+**注意**：通过JavaScript改变`input`，`select`，`textarea`元素的值，无法触发该事件
 
-
+**PS**：属性值contenteditable为true的任意元素输入，删除，剪切，粘贴操作，触发该事件
 
 ### 语法
 
@@ -71,10 +71,15 @@ https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/oninput
 > 元素属性值发生变化时触发
 >
 > IE浏览器独有事件，IE11以及之前的版本支持，Edge不支持，其他浏览器不支持
+>
+> 该事件不支持冒泡
 
 
 
-**PS**：和oninput事件和onchange事件不同的是，通过JavaScript改变`input`元素的值，可以触发该事件。
+**注意**：
+
+- 和oninput事件和onchange事件不同的是，通过JavaScript改变元素的值，可以触发该事件。
+- 该事件不支持冒泡，只能通过input元素去监听。
 
 ### 语法
 
@@ -112,20 +117,29 @@ element.attachEvent('onpropertychange',function(){
 
 ### 参考：
 
-
+无
 
 ## onchange事件
 
 ### 简介
 
-> 
+> `input`，`select`，`textarea`元素值更改时引发输入事件。  
+>
+> 这个事件支持冒泡。如果窗口支持，则`input`，`select`，`textarea`元素也受支持。
+
+
+
+**注意**：该事件只有在`input`，`select`，`textarea`值改变并失去焦点的情况下触发
 
 
 
 ### 语法
 
 ```
-
+window.onchange = function (event) {};
+element.onchange = function (event) {};
+window.addEventListener("change", function (event) {});
+element.addEventListener("change", function (event) {});
 ```
 
 
@@ -133,7 +147,23 @@ element.attachEvent('onpropertychange',function(){
 ### 示例
 
 ```
+window.onchange = function (event) {
+  event = event || window.event;
+  console.log(event.target.value);
+};
 
+window.addEventListener("change", function (event) {
+  event = event || window.event;
+  console.log(event.target.value);
+});
+
+element.onchange = function (event) {
+  console.log(element.value);
+};
+
+element.addEventListener("change", function () {
+  console.log(element.value);
+});
 ```
 
 ### 应用场景
@@ -144,35 +174,41 @@ element.attachEvent('onpropertychange',function(){
 
 | 特征     | Chrome | Firefox | Safari | Edge | Internet Explorer | Opera |
 | -------- | ------ | ------- | ------ | ---- | ----------------- | ----- |
-| 基本支持 | yes    | yes     | yes    | yes  | 9.0               | yes   |
+| 基本支持 | yes    | yes     | yes    | yes  | yes[1]            | yes   |
+
+[1] IE8以及IE8以下版本不支持onchange事件冒泡。
 
 ### 参考：
 
+无
+
+
+
+###oninput事件&onpropertychange事件&onchange事件三者区别
+
+**onchange**：
+
+- 它在绑定对象的value值发生改变并失去焦点时，才触发onchange事件
+- 如果得用javascript改变绑定对象的value值时，并不能触发onchange事件
+- IE9下删除和剪切操作可以触发onchange事件
+
+**onpropertychange**：
+
+- 它在绑定对象的属性值发生改变时，触发onpropertychange事件。这是IE专有的，不支持其他浏览器
+- 如果得用javascript改变绑定对象的value值时，可以触发onpropertychange事件
+- IE9下删除和剪切操作无法触发onpropertychange事件
+
+**oninput**：
+
+- 它在绑定对象的value值发生改变时，触发oninput事件
+- 如果得用javascript改变绑定对象的value值时，并不能触发oninput事件
+- IE9下删除和剪切操作无法触发oninput事件
 
 
 
 
-onchange：1.它在触发对象失去焦点时，才触发onchange事件
 
-​                      2.如果得用javascript改变触发对象的属性时，并不能触发onchange事件
-
-onpropertychange：property(属性)change(改变)的时候，触发事件。这是IE专有的
-
-​                                    只要当前对象属性发生改变，都会触发事件
-
-oninput：onpropertychange的非IE浏览器版本，支持firefox和opera等浏览器，支持IE11,
-
-​                 但有一点不同，它绑定于对象时，并非该对象所有属性改变都能触发事件，
-
-​                 它只在对象value值发生改变时奏效。
-
-oninput 事件：不但JS 改变 value 值时不能触发，有从浏览器的自动下拉提示中选值时，也不会触发。
-
-​                          将oninput写在JS代码中分离出来时与普通事件注册的方法有些不同，必须使用addEventListener来注册。
-
-​                         document.getElementById("wb_comment_content").addEventListener("input",set_alert_wb_comment(),false);
-
-
+​                        
 
 
 
