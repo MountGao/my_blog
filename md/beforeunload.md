@@ -37,7 +37,11 @@ window.addEventListener("beforeunload", function (event) {});
 
 **[1]为了防止网站欺骗用户，谷歌浏览器和火狐浏览器已经废弃设置`returnValue`，谷歌浏览器和火狐浏览器弹窗只显示各自系统通用字符串，忽略自定义字符串，IE依然可以显示自定义字符串，Edge(IE12+)依然可以显示自定义字符串。**
 
-PS：不用再怀疑为什么设置了`returnValue`没有效果了。
+**PS**：不用再怀疑为什么设置了`returnValue`没有效果了。
+
+**google声明：**
+
+https://developers.google.com/web/updates/2016/04/chrome-51-deprecations?hl=en#remove_custom_messages_in_onbeforeunload_dialogs
 
 ## 示例
 
