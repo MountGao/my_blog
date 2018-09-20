@@ -4,7 +4,15 @@
 
 ### 简介
 
-> **HTMLElement.offsetParent** 是一个**<u>只读</u>**属性，返回一个指向最近的（closest，指包含层级上的最近）包含该元素的定位元素。如果没有定位的元素，则 `offsetParent` 为最近的 `table`, `table cell` 或根元素（标准模式下为 `html`；quirks 模式下为 `body`）。当元素的 `style.display` 设置为 "none" 时，`offsetParent` 返回 `null`。`offsetParent` 很有用，因为 `offsetTop` 和 `offsetLeft` 都是相对于其内边距边界的。
+> **HTMLElement.offsetParent** 是一个**<u>只读</u>**属性，`offsetParent` 很有用，因为 `offsetTop` 和 `offsetLeft` 都是相对于其内边距边界的。
+
+**获取一个元素的`offsetParent`按一下顺序获取：**
+
+1. 元素或其祖先元素的`display`属性被设置为`none`时，除了**IE**返回`body`，其他的浏览器(包括Edge)都返回`null`
+2. 元素的`position`属性被设置为`fixed`时，除了**firefox**返回`body`，其他的浏览器都返回`null`
+3. table cell元素的`offsetParent`返回最近的table元素
+4. 元素的祖先元素中如果有定位元素(`position`的值不为`static`)，`offsetParent`返回最近的定位祖先元素
+5. 元素的祖先元素中没有定位元素，`offsetParent`返回`body`
 
 ### 语法
 
@@ -21,9 +29,6 @@ var parentObj = element.offsetParent;
 | 特征     | Chrome | Firefox | Safari | Edge | IE   | Opera |
 | -------- | ------ | ------- | ------ | ---- | ---- | ----- |
 | 基本支持 | yes    | yes     | yes    | yes  | yes  | yes   |
-
-- 在 Webkit 中，如果元素为隐藏的（该元素或其祖先元素的 `style.display` 为 "none"），或者该元素的 `style.position` 被设为 "fixed"，则该属性返回 `null`。
-- 在 IE 9 中，如果该元素的 `style.position` 被设置为 "fixed"，则该属性返回 `null`。（`display:none` 无影响。）
 
 ### 参考：
 
@@ -101,9 +106,13 @@ var left = element.offsetLeft;//返回一个整数，表示向上偏移的像素
 
 > **HTMLElement.offsetHeight** 是一个<u>**只读**</u>属性，它返回该元素的像素高度，高度包含该元素的垂直内边距和边框，且是一个整数。
 
-- 通常，元素的offsetHeight是一种元素CSS高度的衡量标准，包括元素的边框、内边距和元素的水平滚动条（如果存在且渲染的话），不包含:before或:after等伪类元素的高度。
+- `offsetWidth` = border + padding + content + 垂直滚动条（如果存在且渲染的话）;
+- `offsetHeight` = border + padding + content + 水平滚动条（如果存在且渲染的话）;
+
+- `offsetWidth`不包含:before或:after等伪类元素的宽度。
+- `offsetHeight` 不包含:before或:after等伪类元素的高度。
 - 对于文档的body对象，它包括代替元素的CSS高度线性总含量高。浮动元素的向下延伸内容高度是被忽略的。 
-- `box-sizing:border-box`时，`offsetWidth`、`offsetHeight`包括border和padding
+- `box-sizing:border-box`时，`offsetWidth`、`offsetHeight`不包括border和padding
 
 ### 语法
 
@@ -143,11 +152,12 @@ var offsetHeight =element.offsetHeight;
 
 > **Element.clientHeight** 是只读属性，对于没有定义CSS或者内联布局盒子的元素为0；否则，它是元素内部的高度（以像素为单位）。它包含内边距，但不包括水平滚动条、边框和外边距。
 
-- `clientWidth` 可以通过 CSS `width` + CSS `padding` - 垂直滚动条高度 (如果存在)来计算.
-- `clientHeight` 可以通过 CSS `height` + CSS `padding` - 水平滚动条高度 (如果存在)来计算.
-- `box-sizing:border-box`时，`clientWidth`、`clientHeight`不包括border和padding
+- `clientWidth` = padding + width - 垂直滚动条（如果存在且渲染的话）;
+- `clientHeight` = padding + height- 水平滚动条（如果存在且渲染的话）;
+- `box-sizing:border-box`时，`clientWidth` = width - border - 垂直滚动条（如果存在且渲染的话）;
+- `box-sizing:border-box`时，`clientHeight` = height- border - 垂直滚动条（如果存在且渲染的话）;
 
-
+**Note:** 此时(写这个文档的时候)浏览器的滚动条宽度为`13px`
 
 ### 语法
 
@@ -179,7 +189,7 @@ var intElemClientHeight = element.clientHeight;
 ### 参考：
 
 1. https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth
-2. https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth
+2. https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight
 
 ## HTMLElement.scrollWidth& HTMLElement.scrollHeight
 
@@ -189,9 +199,13 @@ var intElemClientHeight = element.clientHeight;
 
 > **Element.scrollHeight**是一个只读属性，是元素内容高度的度量，包括由于溢出而在屏幕上不可见的内容。
 
-- scrollWidth值等于元素在不使用水平滚动条的情况下适合视口中的所有内容所需的最小宽度。 宽度的测量方法与clientWidth相同：它包括元素的填充，但不包括边框，边距或垂直滚动条（如果存在）。 它还可以包括伪元素的宽度，例如:: before或:: after。 如果元素的内容可以适合而不需要水平滚动条，则其scrollWidth等于clientWidth
-- scrollHeight值等于元素在不使用垂直滚动条的情况下适合视口中的所有内容所需的最小高度。 高度的测量方法与clientHeight相同：它包括元素的填充，但不包括边框，边距或水平滚动条（如果存在）。 它还可以包括伪元素的高度，例如:: before或:: after。 如果元素的内容可以适合而不需要垂直滚动条，则其scrollHeight等于clientHeight
-- `box-sizing:border-box`时，`scrollWidth`、`scrollHeight`不包括border和padding
+- scrollWidth值等于元素在不使用水平滚动条的情况下适合视口中的所有内容所需的最小宽度。 宽度的测量方法与clientWidth相同：它包括元素的填充，但不包括边框，边距或垂直滚动条（如果存在）。 它还可以包括伪元素的宽度，例如:: before或:: after。 
+- 如果元素的内容可以适合而不需要水平滚动条，则其scrollWidth等于clientWidth
+- scrollHeight值等于元素在不使用垂直滚动条的情况下适合视口中的所有内容所需的最小高度。 高度的测量方法与clientHeight相同：它包括元素的填充，但不包括边框，边距或水平滚动条（如果存在）。 它还可以包括伪元素的高度，例如:: before或:: after。 
+- 如果元素的内容可以适合而不需要垂直滚动条，则其scrollHeight等于clientHeight
+- 在**firefox**和**edge**以及**IE**中当`padding`存在时，`scrollWidth`只包括`padding-left`，`scrollHeight`只包括`padding-top`，其他浏览器不会忽略存在的`padding`
+- `box-sizing:border-box`时，如果不存在垂直滚动条，`scrollWidth`需要减去`border-left`和`border-right`;
+- `box-sizing:border-box`时，如果不存在水平滚动条，`scrollWidth`需要减去`border-top`和`border-bottom`;
 
 ### 语法
 
@@ -235,4 +249,12 @@ window.getComputedStyle(element).overflowY !== 'hidden'
 
 1. https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollWidth
 2. https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight
+
+
+
+## 总结：
+
+- **垂直滚动条不存在时,当border-left为0、border-right为0，offsetWidth 、clientWidth、scrollWidth三者相等**
+
+- **水平滚动条不存在时,当border-top为0、border-bottom为0，offsetHeight 、clientHeight、scrollHeight三者相等**
 
