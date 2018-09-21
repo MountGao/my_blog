@@ -1,7 +1,3 @@
-#
-
-# 
-
 # drag & drop
 
 ### 拖放事件DragEvent
