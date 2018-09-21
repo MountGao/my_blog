@@ -263,9 +263,9 @@ element.addEventListener("drop",function(){})
 
 ### 应用场景
 
-- XXX
-- XXX
-- XXX
+- 拖拽上传文件
+- 拖动调整栏目位置
+- 来回拖动显示
 
 ### 浏览器兼容性
 
@@ -307,40 +307,35 @@ target.addEventListener("dragover",function (evt) {
 
 ### dataTransfer对象
 
-### 简介
+拖拽事件周期中会初始化一个`DataTransfer`对象,用于保存拖拽数据和交互信息.以下是它的属性和方法.
 
-> 当用户拖动元素或文本选择时，每隔几百毫秒就会触发拖动（drag）事件。
+- `dropEffect`: 拖拽交互类型,通常决定浏览器如何显示鼠标光标并控制拖放操作.常见的取值有`copy`,`move`,`link`和`none`
+- `effectAllowed`: 指定允许的交互类型,可以取值:`copy`,`move`,`link`,`copyLink`,`copyMove`,`limkMove`, `all`, `none`默认为`uninitialized`(允许所有操作)
+- `files`: 包含`File`对象的`FileList`对象.从操作系统向浏览器拖放文件时有用.
+- `types`: 保存`DataTransfer`对象中设置的所有数据类型.
+- `setData(format, data)`: 以键值对设置数据,format通常为数据格式,如`text`,`text/html`,`url`
+- `getData(format)`: 获取设置的对应格式数据,format与setData()中一致
+- `clearData(format)`: 清除指定格式的数据
+- `setDragImage(imgElement, x, y)`: 设置自定义图标
 
-
-
-### 语法
+```
+var dataTransfer = event.dataTransfer;
+//设置文本
+dataTransfer.setData("Text","this is a Text");
+//读取文本
+var text = dataTransfer.getData("Text");
+//设置链接
+dataTransfer.setData("url","this is a Text");
+//读取链接
+var url = dataTransfer.getData("url") || dataTransfer.getData("text/uri-list");
 
 ```
 
-```
-
-
-
-### 示例
-
-```
-
-```
-
-### 应用场景
-
-- XXX
-- XXX
-- XXX
-
-### 浏览器兼容性
-
-| 特征     | Chrome | Firefox | Safari | Edge | IE   | Opera |
-| -------- | ------ | ------- | ------ | ---- | ---- | ----- |
-| 基本支持 | yes    | yes     | 9      | 38   | 5.0  | 10    |
+注意：一定要把短数据类型放在前面，因为IE10及其之前的版本仍然不支持拓展的MIME类型名，而它们在遇到无法识别的数据类型时，会抛出错误。
 
 ### 参考：
 
+1. https://segmentfault.com/a/1190000002810962
 
 
 ## dropEffect与effectAllowed
@@ -350,6 +345,34 @@ target.addEventListener("dragover",function (evt) {
 
 
 
+
+### 
+
+### 参考：
+
+## draggable
+
+
+
+
+
+
+
+### 
+
+### 参考：
+
+
+
+## 其他成员
+
+
+
+
+
+### 
+
+### 参考：
 
 
 
