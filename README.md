@@ -1,1 +1,1 @@
-This is John's first git blog
+This is MountGao's first git blog
