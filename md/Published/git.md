@@ -184,12 +184,25 @@ git push							//向远程仓库提交代码
 1. .gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改 .gitignore是无效的。
 2. 想要 .gitignore起作用，必须要在这些文件不在暂存区中才可以，.gitignore文件只是忽略没有被staged(cached)文件，对于已经被staged文件，加入 .gitignore文件时一定要先从staged移除，才可以忽略。 
 
+#### 2.每次git pull和git push都需要输入用户名密码
+
+**原因：**git clone时连接的是https而不是git@git形式
+
+**解决方法：**git目录下，执行命令:
+
+```
+git config --global credential .helper store
+```
+
+然后再进行一次git pull，这次输完密码后，之后的git pull就不用输密码了。
+
 ## 参考：
 
 1. https://www.cnblogs.com/zhangxiaoliu/p/6008038.html
 2. https://segmentfault.com/a/1190000016848840
 3. https://www.cnblogs.com/ydxblog/p/7988317.html
 4. https://www.cnblogs.com/kevingrace/p/5690241.html
+5. https://www.jianshu.com/p/f30221c3e6cc
 
 
 
