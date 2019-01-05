@@ -20,6 +20,14 @@
 
 >  https://chrome.google.com/webstore/detail/dealgogogo-automatic-amaz/fjcnbidgghbdokmnmclmefnegcfkfffl
 
-6、捕捉网页截图 - FireShot的 
+6、捕捉网页截图 - FireShot
 
 > https://chrome.google.com/webstore/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg
+
+7、网页视频下载-Video Downloader professional 
+
+> https://chrome.google.com/webstore/detail/video-downloader-professi/jpaglkhbmbmhlnpnehlffkgaaapoicnk
+
+8、Postman
+
+> https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop
