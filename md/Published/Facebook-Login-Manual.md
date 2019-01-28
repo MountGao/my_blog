@@ -8,7 +8,7 @@
 
 ### 1、创建一个Facebook应用程序。
 
-点击[穿越门](https://developers.facebook.com/apps/)，进入创建页面，点击Add a New App，填写相应的信息。
+点击[传送门](https://developers.facebook.com/apps/)，进入创建页面，点击Add a New App，填写相应的信息。
 
 ### 2、应用Products添加Facebook Login
 
