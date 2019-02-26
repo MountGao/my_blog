@@ -168,7 +168,7 @@
 
 项目中的 img 元素的 width 和 height 属性需要写，否则定位会不准确。（可以用 JavaScript 实时获取图片的宽高，但图片数量过多时，这将是一件不靠谱的事情，如果你执意要这么做，可以参考这个 [Demo](http://code.ciaoca.com/jquery/wookmark/demo/load-images.html)）
 
-P.S. 请注意以上代码中表示有特别注意的地方
+**P.S. 请注意以上代码中表示有特别注意的地方**
 
 
 
