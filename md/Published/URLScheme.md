@@ -239,7 +239,7 @@ function openWithApp(){
 | 发短信SMS                   | sms:body=hello（AOS）sms:&body=hello（IOS）                  |                                                              |
 | whatsapp发消息              | whatsapp://send?text=[yourText]                              |                                                              |
 | fbmessenger发消息(分享链接) | fb-messenger://share/?link=[yourShareURL]                    | https://www.facebook.com/dialog/send?display=popup&app_id=[yourAppID]&link=[yourShareURL]&redirect_uri=[yourShareURL] |
-| fbmessenger发消息(指定对象) | fb-messenger://m.me/[yourPageID]（通用）  fb-messenger-public://user-thread/[yourPageID]（IOS） | https://www.messenger.com/t/[yourPageID]                     |
+| fbmessenger发消息(指定对象) | fb-messenger://m.me/[yourPageID]（通用）  fb-messenger-public://user-thread/[yourPageID]（IOS） | https://www.messenger.com/t/[yourPageID] / https://m.me/[yourPageID] |
 | fb打开相关主页              | fb://profile/[yourPageID]                                    | https://www.facebook.com/[yourPageID]                        |
 | Amazon打开产品详情页        | com.amazon.mobile.shopping://www.amazon.com/dp/[yourAsin]    | https://www.amazon.com/dp/[yourAsin]                         |
 | 打开App Store中应用详情页   | itms-apps://itunes.apple.com/cn/app/[yourAppID]              | https://itunes.apple.com/cn/app/[yourAppID]                  |
