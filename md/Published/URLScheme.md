@@ -176,22 +176,24 @@ IOS9+支持通用链接，IOS用户可以点击指向您网站的链接，无需
 通过设置延时，浏览器尝试打开URL scheme并记录时间点t1，在2秒计时后，检查当前时间t2，如果t2-t1 > 2200ms,说明唤起app成功(唤起app会是浏览器的定时器延后执行)，如果t2-t1 < 2200ms,可能没有安装app，可以**引导用户进入下载页**（IOS直接跳转APP Store, 如`itms-apps://itunes.apple.com/cn/app/id477927812`）或者直接跳转**与应用功能对应的web页面**。
 
 ```javascript
-var openTime = Date.now(),
+function openWithApp(){
+    var openTime = Date.now(),
 	timer = null,
 	appLink = "twitter://messages/compose?text=hello",
     webLink = "https://twitter.com/messages/compose?text=hello",
 	appDownloadURL = "you app download page"，
 	
-window.location.href = appLink;
+    window.location.href = appLink;
 
-timer = setTimeout(function () {
-        if (Date.now() - openTime < 2200) {//加了200ms基准误差
-            window.location.href = appDownloadURL;
-        }else{
-            clearTimeout(timer);
+    timer = setTimeout(function () {
+            if (Date.now() - openTime < 2200) {//加了200ms基准误差
+                window.location.href = appDownloadURL;
+            }else{
+                clearTimeout(timer);
+            }
         }
-    }
-}, 2000);
+    }, 2000);
+}
 ```
 
 
@@ -228,18 +230,20 @@ timer = setTimeout(function () {
 
 1、记录使用过的URL Scheme
 
-| 名称                      | URL Scheme                                                | 对应的普通链接                                               |
-| ------------------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
-| Twitter发消息             | twitter://messages/compose?text=hello                     | https://twitter.com/messages/compose?text=hello              |
-| Twitter发动态             | twitter://intent/tweet?text=hello                         | https://twitter.com/intent/tweet?text=hello                  |
-| 打开Email                 | mailto:?body=hello                                        |                                                              |
-| 给某人发Email             | mailto:example@gmail.com?body=hello                       |                                                              |
-| 发短信SMS                 | sms:body=hello（AOS）sms:&body=hello（IOS）               |                                                              |
-| whatsapp发消息            | whatsapp://send?text=hello                                |                                                              |
-| fbmessenger发消息         | fb-messenger://share/?link=                               | https://www.facebook.com/dialog/send?display=popup&app_id= + YourAppID + &link= + yourShareURL+ &redirect_uri= + yourShareURL |
-| Amazon打开产品详情页      | com.amazon.mobile.shopping://www.amazon.com/dp/B07DGR98VQ | https://www.amazon.com/dp/B07DGR98VQ                         |
-| 打开App Store中应用详情页 | itms-apps://itunes.apple.com/cn/app/id477927812           | https://itunes.apple.com/cn/app/id477927812                  |
-| 打电话                    | tel:1234567891                                            |                                                              |
+| 名称                        | URL Scheme                                                   | 对应的普通链接                                               |
+| --------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Twitter发消息               | twitter://messages/compose?text=[yourText]                   | https://twitter.com/messages/compose?text=[yourText]         |
+| Twitter发动态               | twitter://intent/tweet?text=[yourText]                       | https://twitter.com/intent/tweet?text=[yourText]             |
+| 打开Email                   | mailto:?body=[yourText]                                      |                                                              |
+| 给某人发Email               | mailto:[emailAddress]?body=[yourText]                        |                                                              |
+| 发短信SMS                   | sms:body=hello（AOS）sms:&body=hello（IOS）                  |                                                              |
+| whatsapp发消息              | whatsapp://send?text=[yourText]                              |                                                              |
+| fbmessenger发消息(分享链接) | fb-messenger://share/?link=[yourShareURL]                    | https://www.facebook.com/dialog/send?display=popup&app_id=[yourAppID]&link=[yourShareURL]&redirect_uri=[yourShareURL] |
+| fbmessenger发消息(指定对象) | fb-messenger://m.me/[yourPageID]（通用）  fb-messenger-public://user-thread/[yourPageID]（IOS） | https://www.messenger.com/t/[yourPageID]                     |
+| fb打开相关主页              | fb://profile/[yourPageID]                                    | https://www.facebook.com/[yourPageID]                        |
+| Amazon打开产品详情页        | com.amazon.mobile.shopping://www.amazon.com/dp/[yourAsin]    | https://www.amazon.com/dp/[yourAsin]                         |
+| 打开App Store中应用详情页   | itms-apps://itunes.apple.com/cn/app/[yourAppID]              | https://itunes.apple.com/cn/app/[yourAppID]                  |
+| 打电话                      | tel:[telephoneNumber]                                        |                                                              |
 
 2、系统默认应用
 
