@@ -1,10 +1,10 @@
-# git操作
+﻿# git操作
 
 我们先来理解下Git 工作区、暂存区和版本库概念
 
-- **工作区：**  就是你在电脑里能看到的目录。
-- **暂存区： ** 英文叫stage, 或index。一般存放在 ".git目录下" 下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。
-- **版本库：**  工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
+- **工作区：** 就是你在电脑里能看到的目录。
+- **暂存区：** 英文叫stage, 或index。一般存放在 ".git目录下" 下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。
+- **版本库：** 工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
 
 ## git基本操作
 
@@ -24,7 +24,7 @@
 | git config user.name                      | 查看已配置的用户名 |
 | git config user.email                     | 查看已配置的邮箱   |
 | git config --global user.name "username"  | 配置用户名         |
-| git config --global user.email your_email | 配置邮箱           |
+| git config --global user.email your_email | 配置邮箱（没有双引号）           |
 
 ### example:
 
@@ -90,6 +90,23 @@ git config --global user.email username@username.com
 | git push origin --delete branch_name       | 删除远程指定的分支                                           |
 | git push origin -d branch_name             | 删除远程指定的分支                                           |
 | git push origin :head/branch_name          | 删除远程指定的分支                                           |
+| git branch -m <new-branch-name>            | 重命名本地分支                                               |
+
+## 骚操作
+
+#### 查看某段代码是谁写的
+
+```
+git blame <file-name>
+```
+
+## 展示忽略的文件
+
+```
+git status --ignored
+```
+
+
 
 ## .gitignore忽略规则简单说明
 
@@ -186,13 +203,11 @@ git push							//向远程仓库提交代码
 
 #### 2.每次git pull和git push都需要输入用户名密码
 
-**原因：**git clone时连接的是https而不是git@git形式
+**原因**：git clone时连接的是https而不是git@git形式
 
-**解决方法：**git目录下，执行命令:
+**解决方法**：git目录下，执行命令:
 
-```
-git config --global credential .helper store
-```
+    git config --global credential.helper store
 
 然后再进行一次git pull，这次输完密码后，之后的git pull就不用输密码了。
 
